@@ -5,43 +5,33 @@ import pathlib
 import sys
 
 DIAGRAM = """\
-┌────────────────────────────────────────────────────────────────────────────────────┐
-│ TIER 1: AST & Superset Cohort Builder (Cadence: 1h – 6h, Background Build Pool)    │
-│  [Kernel Source] ──► Cacheline-Bucketed RANDSTRUCT (Seed_C, 64B cacheline bounds)  │
-│                  ──► Pinned eBPF Manifest (noinline, retain) + Frozen VDSO / UAPI  │
-│                  ──► LLVM RegAlloc Jitter (-rng-seed=Seed_C) + -ffunction-sections │
-│                  ──► Emits Indexed Thin Superset Archive (vmlinux-superset.a)      │
-└─────────────────────────────────────────┬──────────────────────────────────────────┘
-                                          │
-                                          ▼ (Cached in Cohort Artifact Store)
-┌────────────────────────────────────────────────────────────────────────────────────┐
-│ TIER 2: Hardware-Profile Linker & UKI Sealer (Cadence: Per Cohort × Host Profile)  │
-│  [Superset .a]   ──► Modalias Profile Slicer + ld.lld --gc-sections --emit-relocs  │
-│                  ──► Cohort .BTF Synthesis (pahole -J) + Two-Pass kallsyms         │
-│                  ──► swizzle-pack-relocs.py (Packs SHT_RELA -> .init.swizzle_relocs│
-│                  ──► Offline UKI Signing + SEV-SNP ID_BLOCK / TDX CoRIM / pcrlock  │
-└─────────────────────────────────────────┬──────────────────────────────────────────┘
-                                          │
-                                          ▼ (Static Golden Hash Measured by Hardware)
-┌────────────────────────────────────────────────────────────────────────────────────┐
-│ TIER 3: In-Enclave Early-Boot Self-Relinker (libswizzle_boot.a, Every Boot, ~45ms) │
-│  [Cohort UKI]    ──► Verified Boot Finalizes Static PCR[4] / RTMR[1] / SNP Launch  │
-│                  ──► Draws 256-bit Hardware Seed (RDSEED) Inside CPU Package       │
-│                  ──► Staged Scratch Permutation (.text*, .data*, .rodata* + 0xcc)  │
-│                  ──► In-Place Heapsort (__ex_table, .orc_unwind_ip, kallsyms_idx)  │
-│                  ──► RFC 9180 HPKE Seed Sealer + memzero_explicit() ──► Boot OS    │
-└───────────────────┬──────────────────────────────────────────────┬─────────────────┘
-                    │                                              │
-                    ▼ (In-Enclave Runtime)                         ▼ (Zero-Storage)
-┌──────────────────────────────────────┐      ┌──────────────────────────────────────┐
-│ Hardened Target Node / CVM           │      │ Symbol & Attestation Vault           │
-│ - Redacted kallsyms (func+0xoff/sz)  │      │ - Signer-Delegated Root Verification │
-│ - SipHash %px/%pK & Locked /proc     │      │ - Unseals Panic hpke:v1:<enc>:<ct>   │
-│ - Per-Boot RANDOM_KMALLOC_CACHES     │      │ - Replays Seed_B -> Canonical DWARF  │
-│ - Intact eBPF CO-RE & CRIU VDSO      │      │ - Zero Per-Boot Binary Storage       │
-└──────────────────────────────────────┘      └──────────────────────────────────────┘"""
+┌───────────────────────────────────────────────────────────┐
+│ TIER 1: Cohort Builder (Every 1–6h)                       │
+│  [Source] ──► RANDSTRUCT + RegAlloc Jitter (Seed_C)       │
+│           ──► Pinned eBPF + vmlinux-superset.a            │
+└─────────────────────────────┬─────────────────────────────┘
+                              ▼
+┌───────────────────────────────────────────────────────────┐
+│ TIER 2: Profile Linker & UKI Sealer                       │
+│  [Archive] ──► ld.lld --gc-sections + Cohort .BTF         │
+│            ──► Pack Relocs + Sign UKI (SEV-SNP / TDX)     │
+└─────────────────────────────┬─────────────────────────────┘
+                              ▼
+┌───────────────────────────────────────────────────────────┐
+│ TIER 3: Early-Boot Self-Relinker (Every Boot, ~45ms)      │
+│  [Cohort UKI] ──► Verify Hash (PCR / RTMR / SNP)          │
+│               ──► CPU RDSEED + Shuffle (.text, .data)     │
+│               ──► Sort Unwind/Syms + HPKE Seal & Wipe     │
+└──────────────┬─────────────────────────────┬──────────────┘
+               ▼                             ▼
+┌────────────────────────────┐ ┌────────────────────────────┐
+│ Hardened CVM / Node        │ │ Symbol & Attestation Vault │
+│ • Redacted kallsyms        │ │ • Verify Cohort Signature  │
+│ • Per-Boot Slab Cache Rand │ │ • Unseal Panic HPKE Seed   │
+│ • Intact eBPF CO-RE & VDSO │ │ • Replay Seed -> GDB Map   │
+└────────────────────────────┘ └────────────────────────────┘"""
 
-BORDER_CHARS = set("┌─┐│└┘┬┴├┤►▼")
+BORDER_CHARS = set("┌─┐│└┘┬┴├┤►▼•")
 RESET = "\033[0m"
 TEXT_COLOR = "\033[38;2;230;235;240m"
 
