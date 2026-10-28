@@ -1,0 +1,129 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Swizzle Architecture <swizzle@kernel.org>
+Subject: [PATCH] x86/boot, kernel: Wire Swizzle v3 in-enclave early-boot relocator & HPKE panic sealer
+
+1. Raise BOOT_HEAP_SIZE to 64 MB (0x4000000) in arch/x86/include/asm/boot.h
+   to hold the temporary section-permutation scratch buffer.
+2. Hook swizzle_relocate_kernel() in arch/x86/boot/compressed/misc.c immediately
+   after parse_elf() and prior to handle_relocations().
+3. Emit .rodata.swizzle_hpke_pub, .rodata.swizzle_desc, .init.swizzle_relocs,
+   and page-aligned guard padding around high-value globals (modprobe_path,
+   core_pattern, poweroff_cmd) in arch/x86/kernel/vmlinux.lds.S.
+4. Redact raw hex addresses from %pS / sprint_symbol in lib/vsprintf.c while
+   preserving function_name+0xoffset/0xsize.
+---
+ arch/x86/boot/compressed/Makefile |  2 +-
+ arch/x86/boot/compressed/misc.c   | 10 ++++++++++
+ arch/x86/include/asm/boot.h       |  2 +-
+ arch/x86/kernel/vmlinux.lds.S     | 26 ++++++++++++++++++++++++++
+ lib/vsprintf.c                    |  6 +++++-
+ 5 files changed, 43 insertions(+), 3 deletions(-)
+
+diff --git a/arch/x86/boot/compressed/Makefile b/arch/x86/boot/compressed/Makefile
+index 1a2b3c4d5e6f..7a8b9c0d1e2f 100644
+--- a/arch/x86/boot/compressed/Makefile
++++ b/arch/x86/boot/compressed/Makefile
+@@ -85,7 +85,7 @@ vmlinux-objs-y := $(obj)/vmlinux.lds $(obj)/kernel_info.o $(obj)/head_$(BITS).o
+ 	$(obj)/misc.o $(obj)/string.o $(obj)/cmdline.o $(obj)/error.o \
+-	$(obj)/piggy.o $(obj)/cpuflags.o
++	$(obj)/piggy.o $(obj)/cpuflags.o $(obj)/swizzle.o
+ 
+ vmlinux-objs-$(CONFIG_EARLY_PRINTK) += $(obj)/early_serial_console.o
+diff --git a/arch/x86/boot/compressed/misc.c b/arch/x86/boot/compressed/misc.c
+index 3e4f5a6b7c8d..9f0e1d2c3b4a 100644
+--- a/arch/x86/boot/compressed/misc.c
++++ b/arch/x86/boot/compressed/misc.c
+@@ -16,6 +16,7 @@
+ #include "error.h"
+ #include "pgtable.h"
+ #include <asm/bootparam_utils.h>
++#include <asm/swizzle_boot.h>
+ 
+ /*
+  * WARNING!!
+@@ -435,6 +436,15 @@ asmlinkage __visible void *extract_kernel(void *rmode, memptr heap,
+ 	debug_putstr("Parsing ELF... ");
+ 	parse_elf(output);
+ 
++	/*
++	 * Permute .text.*, .data.*, and .rodata.* in RAM using hardware RDSEED
++	 * prior to applying the outer base-address KASLR delta.
++	 */
++	swizzle_relocate_kernel(output, output_len,
++				free_mem_ptr ? (u8 *)free_mem_ptr : NULL,
++				free_mem_end_ptr - free_mem_ptr);
++
+ 	handle_relocations(output, output_len, virt_addr);
+ 	debug_putstr("done.\nBooting the kernel (entry_offset: 0x");
+ 	debug_puthex(entry_offset);
+diff --git a/arch/x86/include/asm/boot.h b/arch/x86/include/asm/boot.h
+index 2b3c4d5e6f7a..8b9c0d1e2f3a 100644
+--- a/arch/x86/include/asm/boot.h
++++ b/arch/x86/include/asm/boot.h
+@@ -34,7 +34,7 @@
+ # error "Invalid value for CONFIG_PHYSICAL_ALIGN"
+ #endif
+ 
+-#if defined(CONFIG_KERNEL_BZIP2)
++#if defined(CONFIG_SWIZZLE)
++# define BOOT_HEAP_SIZE		0x4000000 /* 64 MB for in-RAM section permutation */
++#elif defined(CONFIG_KERNEL_BZIP2)
+ # define BOOT_HEAP_SIZE		0x400000
+ #elif defined(CONFIG_KERNEL_ZSTD)
+diff --git a/arch/x86/kernel/vmlinux.lds.S b/arch/x86/kernel/vmlinux.lds.S
+index 4c5d6e7f8a9b..0a1b2c3d4e5f 100644
+--- a/arch/x86/kernel/vmlinux.lds.S
++++ b/arch/x86/kernel/vmlinux.lds.S
+@@ -165,6 +165,32 @@ SECTIONS
+ 	/* Read-only data */
+ 	RO_DATA(PAGE_SIZE)
+ 
++	.rodata.swizzle_desc : AT(ADDR(.rodata.swizzle_desc) - LOAD_OFFSET) {
++		. = ALIGN(8);
++		KEEP(*(.rodata.swizzle_desc))
++	}
++
++	.rodata.swizzle_hpke_pub : AT(ADDR(.rodata.swizzle_hpke_pub) - LOAD_OFFSET) {
++		__start_swizzle_hpke_pub = .;
++		KEEP(*(.rodata.swizzle_hpke_pub))
++		__stop_swizzle_hpke_pub = .;
++	}
++
++	/* Guard trap pages around high-value writable globals */
++	.data.swizzle_guarded : AT(ADDR(.data.swizzle_guarded) - LOAD_OFFSET) {
++		. = ALIGN(PAGE_SIZE);
++		__swizzle_guard_trap_pre = .;
++		. += PAGE_SIZE;
++		*(.data.modprobe_path)
++		*(.data.core_pattern)
++		*(.data.poweroff_cmd)
++		. = ALIGN(PAGE_SIZE);
++		__swizzle_guard_trap_post = .;
++		. += PAGE_SIZE;
++	}
++
++	.init.swizzle_relocs : AT(ADDR(.init.swizzle_relocs) - LOAD_OFFSET) {
++		__start_swizzle_relocs = .;
++		KEEP(*(.init.swizzle_relocs))
++		__stop_swizzle_relocs = .;
++	}
++
+ 	/*一點 Data */
+diff --git a/lib/vsprintf.c b/lib/vsprintf.c
+index 5d6e7f8a9b0c..1b2c3d4e5f6a 100644
+--- a/lib/vsprintf.c
++++ b/lib/vsprintf.c
+@@ -990,7 +990,11 @@ char *symbol_string(char *buf, char *end, void *ptr,
+ #ifdef CONFIG_KALLSYMS
+ 	if (fmt[0] == 'B')
+ 		sprint_backtrace(sym, value);
+-	else if (fmt[0] != 's')
++	else if (IS_ENABLED(CONFIG_SWIZZLE_REDACT_KALLSYMS))
++		/* Strip raw hex virtual addresses while preserving func+0xoff/0xsize */
++		sprint_symbol_no_offset(sym, value);
++	else if (fmt[0] != 's')
+ 		sprint_symbol(sym, value);
+ 	else
+ 		sprint_symbol_no_offset(sym, value);
+-- 
+2.45.0

@@ -1,0 +1,28 @@
+[package]
+name = "swizzle"
+version = "0.3.0"
+edition = "2021"
+description = "Durable, fail-open kernel diversification library and Symbol Vault CLI for per-boot layout randomization"
+license = "Apache-2.0"
+
+[lib]
+name = "swizzle"
+path = "src/lib.rs"
+
+[[bin]]
+name = "swizzle-ctl"
+path = "src/main.rs"
+
+[dependencies]
+anyhow = "1.0"
+byteorder = "1.5"
+clap = { version = "4.5", features = ["derive"] }
+hex = "0.4"
+hpke = { version = "0.12", default-features = false, features = ["x25519", "std"] }
+rand = "0.8"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+sha2 = "0.10"
+
+[build-dependencies]
+cc = "1.0"
