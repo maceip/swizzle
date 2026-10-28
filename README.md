@@ -7,30 +7,9 @@ normally, every server running the same kernel release has the exact same intern
 
 randomizing a kernel binary usually changes its hash and breaks hardware root-of-trust checks like uefi secure boot, tpm 2.0, amd sev-snp, and intel tdx. swizzle keeps hardware attestation intact by shipping one signed kernel image per build cohort that the hardware verifies and measures first. once inside the trusted guest memory boundary, the early-boot stub draws fresh cpu randomness (`rdseed`) and shuffles its own sections in ram before the kernel starts. if a machine panics, it prints a small encrypted seed (`hpke`) so engineers can replay the exact layout in a debugger without storing per-boot binaries or leaking raw addresses.
 
-```mermaid
-flowchart TD
-    subgraph tier1["tier 1: cohort build"]
-        src["kernel source"] --> rand["struct layout shuffle"]
-        rand --> archive["superset archive"]
-        archive --> uki["signed cohort uki"]
-    end
-
-    subgraph tier2["tier 2: early boot in ram"]
-        uki --> rot["hardware measurement (snp / tdx / tpm)"]
-        rot --> stub["decompression stub"]
-        stub --> rdseed["cpu rdseed"]
-        rdseed --> permute["shuffle sections & patch relocs"]
-        permute --> sort["re-sort unwind & symbol tables"]
-        sort --> seal["seal seed with hpke & wipe relocs"]
-        seal --> boot["start_kernel()"]
-    end
-
-    subgraph vault["zero-storage forensics"]
-        boot -. "panic envelope" .-> ctl["swizzle-ctl debug"]
-        uki -. "reloc table" .-> ctl
-        ctl --> gdb["reconstructed gdb map"]
-    end
-```
+<p align="center">
+  <img src="assets/architecture.svg" alt="Swizzle 3-Tier Architecture" width="100%" />
+</p>
 
 ### layout
 
@@ -40,10 +19,14 @@ flowchart TD
 - [`kernel/lib/swizzle_kallsyms.c`](kernel/lib/swizzle_kallsyms.c) & [`kernel/mm/swizzle_slab.c`](kernel/mm/swizzle_slab.c): address-redacted stack traces (`%pS`) and slab freelist jitter.
 - [`kernel/patches/0001-x86-boot-swizzle-integration.patch`](kernel/patches/0001-x86-boot-swizzle-integration.patch): kernel wiring for `misc.c`, `boot.h`, `vmlinux.lds.S`, and `vsprintf.c`.
 - [`src/`](src/lib.rs): rust diversification library (`swizzle`) and symbol vault cli (`swizzle-ctl`).
+- [`scripts/render_diagram.py`](scripts/render_diagram.py): renders the 3-tier architecture diagram with 24-bit ansi orange-to-red gradient borders (`#ff9e00` -> `#d90429`) and exports [`assets/architecture.svg`](assets/architecture.svg).
 
 ### usage
 
 ```bash
+# render the 24-bit ansi gradient diagram in your terminal
+./scripts/render_diagram.py
+
 # generate symbol vault keypair
 cargo run -- keygen --pub-out vault_pubkey.bin --priv-out vault_privkey.hex
 
