@@ -1,8 +1,9 @@
-<img width="544"  alt="39655" src="https://github.com/user-attachments/assets/674c5582-c975-41e7-9293-921c9f9894c9" />
+<img width="544" alt="swizzler" src="https://github.com/user-attachments/assets/96e207f2-6f63-45a3-a3fa-90f98dc48c35" />
 
-___
+
 durable, fail-open kernel diversification library for per-boot layout randomization.
 
+___
 normally, every server running the same kernel release has the exact same internal map. if an attacker leaks a single pointer, they know the exact distance to every function, setting, and data structure—letting them chain together existing code snippets (rop/jop), overwrite privileged globals, or line up adjacent objects on the heap. swizzle breaks that assumption by shuffling the order of kernel functions, struct fields, and heap caches on every boot so every machine has a different layout and pre-calculated exploits crash.
 
 randomizing a kernel binary usually changes its hash and breaks hardware root-of-trust checks like uefi secure boot, tpm 2.0, amd sev-snp, and intel tdx. swizzle keeps hardware attestation intact by shipping one signed kernel image per build cohort that the hardware verifies and measures first. once inside the trusted guest memory boundary, the early-boot stub draws fresh cpu randomness (`rdseed`) and shuffles its own sections in ram before the kernel starts. if a machine panics, it prints a small encrypted seed (`hpke`) so engineers can replay the exact layout in a debugger without storing per-boot binaries or leaking raw addresses.
