@@ -1,12 +1,14 @@
-<img width="544" alt="swizzler" src="https://github.com/user-attachments/assets/96e207f2-6f63-45a3-a3fa-90f98dc48c35" />
-
+<p align="center">
+  <img width="544" alt="swizzler" src="https://github.com/user-attachments/assets/96e207f2-6f63-45a3-a3fa-90f98dc48c35" />
+</p>
 
 durable, fail-open kernel diversification library for per-boot layout randomization.
 
 ___
-normally, every server running the same kernel release has the exact same internal map. if an attacker leaks a single pointer, they know the exact distance to every function, setting, and data structure—letting them chain together existing code snippets (rop/jop), overwrite privileged globals, or line up adjacent objects on the heap. swizzle breaks that assumption by shuffling the order of kernel functions, struct fields, and heap caches on every boot so every machine has a different layout and pre-calculated exploits crash.
 
-randomizing a kernel binary usually changes its hash and breaks hardware root-of-trust checks like uefi secure boot, tpm 2.0, amd sev-snp, and intel tdx. swizzle keeps hardware attestation intact by shipping one signed kernel image per build cohort that the hardware verifies and measures first. once inside the trusted guest memory boundary, the early-boot stub draws fresh cpu randomness (`rdseed`) and shuffles its own sections in ram before the kernel starts. if a machine panics, it prints a small encrypted seed (`hpke`) so engineers can replay the exact layout in a debugger without storing per-boot binaries or leaking raw addresses.
+in the frontier red-team era—where autonomous agents and anyone on the internet can synthesize working kernel exploits on demand—fleet monoculture is a liability. when every host running the same kernel release shares the exact same binary layout, a single pointer leak gives an exploit deterministic offsets to every ROP/JOP gadget, privileged global (`modprobe_path`, `core_pattern`), struct member, and slab cache across the entire fleet. **swizzle** introduces client diversity at the kernel layer through cacheline-bucketed struct randomization (`RANDSTRUCT`), in-enclave per-boot ELF section permutation (`.text.*`, `.data.*`, `.rodata.*`), and caller-IP slab cache isolation—so one-shot exploits fail across machines and across reboots.
+
+diversifying kernel binaries normally mutates their measurement hash and breaks hardware root-of-trust attestation across UEFI Secure Boot, TPM 2.0 (`systemd-pcrlock`), AMD SEV-SNP (`ID_BLOCK`), and Intel TDX (`RTMR`). swizzle preserves cryptographic attestation by decoupling build-time cohort signing from runtime layout permutation: hardware verifies and measures a deterministic, signed cohort UKI first, and the early-boot decompression stub then draws fresh hardware entropy (`RDSEED`) inside the confidential guest boundary to relink sections and re-sort exception, ORC unwind, and symbol tables in RAM before `start_kernel()`. if a kernel panics, it emits a compact RFC 9180 HPKE ciphertext containing the boot seed so the Symbol Vault can deterministically reconstruct the exact per-boot DWARF/GDB layout with zero per-boot binary storage.
 
 <p align="center">
   <img src="assets/architecture.svg" alt="Swizzle 3-Tier Architecture" width="100%" />
@@ -20,14 +22,10 @@ randomizing a kernel binary usually changes its hash and breaks hardware root-of
 - [`kernel/lib/swizzle_kallsyms.c`](kernel/lib/swizzle_kallsyms.c) & [`kernel/mm/swizzle_slab.c`](kernel/mm/swizzle_slab.c): address-redacted stack traces (`%pS`) and slab freelist jitter.
 - [`kernel/patches/0001-x86-boot-swizzle-integration.patch`](kernel/patches/0001-x86-boot-swizzle-integration.patch): kernel wiring for `misc.c`, `boot.h`, `vmlinux.lds.S`, and `vsprintf.c`.
 - [`src/`](src/lib.rs): rust diversification library (`swizzle`) and symbol vault cli (`swizzle-ctl`).
-- [`scripts/render_diagram.py`](scripts/render_diagram.py): renders the 3-tier architecture diagram with 24-bit ansi orange-to-red gradient borders (`#ff9e00` -> `#d90429`) and exports [`assets/architecture.svg`](assets/architecture.svg).
 
 ### usage
 
 ```bash
-# render the 24-bit ansi gradient diagram in your terminal
-./scripts/render_diagram.py
-
 # generate symbol vault keypair
 cargo run -- keygen --pub-out vault_pubkey.bin --priv-out vault_privkey.hex
 

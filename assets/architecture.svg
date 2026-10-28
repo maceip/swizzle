@@ -1,30 +1,173 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 531" width="560" height="531">
-  <rect width="100%" height="100%" rx="10" ry="10" fill="#0d1117"/>
-  <g font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="14" xml:space="preserve">
-    <text x="24.0" y="43.2"><tspan fill="#ff9e00">┌</tspan><tspan fill="#fe9d00">─</tspan><tspan fill="#fe9c00">─</tspan><tspan fill="#fe9b00">─</tspan><tspan fill="#fe9a00">─</tspan><tspan fill="#fe9a01">─</tspan><tspan fill="#fd9901">─</tspan><tspan fill="#fd9801">─</tspan><tspan fill="#fd9701">─</tspan><tspan fill="#fd9701">─</tspan><tspan fill="#fd9602">─</tspan><tspan fill="#fc9502">─</tspan><tspan fill="#fc9402">─</tspan><tspan fill="#fc9402">─</tspan><tspan fill="#fc9302">─</tspan><tspan fill="#fc9203">─</tspan><tspan fill="#fc9103">─</tspan><tspan fill="#fb9103">─</tspan><tspan fill="#fb9003">─</tspan><tspan fill="#fb8f03">─</tspan><tspan fill="#fb8e04">─</tspan><tspan fill="#fb8e04">─</tspan><tspan fill="#fa8d04">─</tspan><tspan fill="#fa8c04">─</tspan><tspan fill="#fa8b04">─</tspan><tspan fill="#fa8b05">─</tspan><tspan fill="#fa8a05">─</tspan><tspan fill="#f98905">─</tspan><tspan fill="#f98805">─</tspan><tspan fill="#f98805">─</tspan><tspan fill="#f98706">─</tspan><tspan fill="#f98606">─</tspan><tspan fill="#f98506">─</tspan><tspan fill="#f88506">─</tspan><tspan fill="#f88406">─</tspan><tspan fill="#f88307">─</tspan><tspan fill="#f88207">─</tspan><tspan fill="#f88107">─</tspan><tspan fill="#f78107">─</tspan><tspan fill="#f78007">─</tspan><tspan fill="#f77f08">─</tspan><tspan fill="#f77e08">─</tspan><tspan fill="#f77e08">─</tspan><tspan fill="#f67d08">─</tspan><tspan fill="#f67c08">─</tspan><tspan fill="#f67b09">─</tspan><tspan fill="#f67b09">─</tspan><tspan fill="#f67a09">─</tspan><tspan fill="#f67909">─</tspan><tspan fill="#f57809">─</tspan><tspan fill="#f5780a">─</tspan><tspan fill="#f5770a">─</tspan><tspan fill="#f5760a">─</tspan><tspan fill="#f5750a">─</tspan><tspan fill="#f4750a">─</tspan><tspan fill="#f4740b">─</tspan><tspan fill="#f4730b">─</tspan><tspan fill="#f4720b">─</tspan><tspan fill="#f4720b">─</tspan><tspan fill="#f3710b">─</tspan><tspan fill="#f3700c">┐</tspan></text>
-    <text x="24.0" y="62.2"><tspan fill="#fd9901">│</tspan><tspan fill="#e6ebf0"> TIER 1: Cohort Builder (Every 1–6h)                       </tspan><tspan fill="#f26c0d">│</tspan></text>
-    <text x="24.0" y="81.2"><tspan fill="#fc9502">│</tspan><tspan fill="#e6ebf0">  [Source] </tspan><tspan fill="#fa8b04">─</tspan><tspan fill="#fa8b05">─</tspan><tspan fill="#fa8a05">►</tspan><tspan fill="#e6ebf0"> RANDSTRUCT + RegAlloc Jitter (Seed_C)       </tspan><tspan fill="#f1670e">│</tspan></text>
-    <text x="24.0" y="100.2"><tspan fill="#fb9003">│</tspan><tspan fill="#e6ebf0">           </tspan><tspan fill="#f98706">─</tspan><tspan fill="#f98606">─</tspan><tspan fill="#f98506">►</tspan><tspan fill="#e6ebf0"> Pinned eBPF + vmlinux-superset.a            </tspan><tspan fill="#f0630f">│</tspan></text>
-    <text x="24.0" y="119.2"><tspan fill="#fa8c04">└</tspan><tspan fill="#fa8b04">─</tspan><tspan fill="#fa8a05">─</tspan><tspan fill="#fa8905">─</tspan><tspan fill="#f98905">─</tspan><tspan fill="#f98805">─</tspan><tspan fill="#f98705">─</tspan><tspan fill="#f98606">─</tspan><tspan fill="#f98506">─</tspan><tspan fill="#f88506">─</tspan><tspan fill="#f88406">─</tspan><tspan fill="#f88307">─</tspan><tspan fill="#f88207">─</tspan><tspan fill="#f88207">─</tspan><tspan fill="#f78107">─</tspan><tspan fill="#f78007">─</tspan><tspan fill="#f77f08">─</tspan><tspan fill="#f77f08">─</tspan><tspan fill="#f77e08">─</tspan><tspan fill="#f77d08">─</tspan><tspan fill="#f67c08">─</tspan><tspan fill="#f67c09">─</tspan><tspan fill="#f67b09">─</tspan><tspan fill="#f67a09">─</tspan><tspan fill="#f67909">─</tspan><tspan fill="#f57909">─</tspan><tspan fill="#f5780a">─</tspan><tspan fill="#f5770a">─</tspan><tspan fill="#f5760a">─</tspan><tspan fill="#f5760a">─</tspan><tspan fill="#f4750a">┬</tspan><tspan fill="#f4740b">─</tspan><tspan fill="#f4730b">─</tspan><tspan fill="#f4730b">─</tspan><tspan fill="#f4720b">─</tspan><tspan fill="#f4710b">─</tspan><tspan fill="#f3700c">─</tspan><tspan fill="#f3700c">─</tspan><tspan fill="#f36f0c">─</tspan><tspan fill="#f36e0c">─</tspan><tspan fill="#f36d0c">─</tspan><tspan fill="#f26c0d">─</tspan><tspan fill="#f26c0d">─</tspan><tspan fill="#f26b0d">─</tspan><tspan fill="#f26a0d">─</tspan><tspan fill="#f2690d">─</tspan><tspan fill="#f1690e">─</tspan><tspan fill="#f1680e">─</tspan><tspan fill="#f1670e">─</tspan><tspan fill="#f1660e">─</tspan><tspan fill="#f1660e">─</tspan><tspan fill="#f1650f">─</tspan><tspan fill="#f0640f">─</tspan><tspan fill="#f0630f">─</tspan><tspan fill="#f0630f">─</tspan><tspan fill="#f0620f">─</tspan><tspan fill="#f06110">─</tspan><tspan fill="#ef6010">─</tspan><tspan fill="#ef6010">─</tspan><tspan fill="#ef5f10">─</tspan><tspan fill="#ef5e10">┘</tspan></text>
-    <text x="24.0" y="138.2"><tspan fill="#e6ebf0">                              </tspan><tspan fill="#f3700c">▼</tspan></text>
-    <text x="24.0" y="157.2"><tspan fill="#f88307">┌</tspan><tspan fill="#f88207">─</tspan><tspan fill="#f78107">─</tspan><tspan fill="#f78007">─</tspan><tspan fill="#f78007">─</tspan><tspan fill="#f77f08">─</tspan><tspan fill="#f77e08">─</tspan><tspan fill="#f77d08">─</tspan><tspan fill="#f67c08">─</tspan><tspan fill="#f67c08">─</tspan><tspan fill="#f67b09">─</tspan><tspan fill="#f67a09">─</tspan><tspan fill="#f67909">─</tspan><tspan fill="#f57909">─</tspan><tspan fill="#f57809">─</tspan><tspan fill="#f5770a">─</tspan><tspan fill="#f5760a">─</tspan><tspan fill="#f5760a">─</tspan><tspan fill="#f4750a">─</tspan><tspan fill="#f4740b">─</tspan><tspan fill="#f4730b">─</tspan><tspan fill="#f4730b">─</tspan><tspan fill="#f4720b">─</tspan><tspan fill="#f4710b">─</tspan><tspan fill="#f3700c">─</tspan><tspan fill="#f3700c">─</tspan><tspan fill="#f36f0c">─</tspan><tspan fill="#f36e0c">─</tspan><tspan fill="#f36d0c">─</tspan><tspan fill="#f26d0d">─</tspan><tspan fill="#f26c0d">─</tspan><tspan fill="#f26b0d">─</tspan><tspan fill="#f26a0d">─</tspan><tspan fill="#f26a0d">─</tspan><tspan fill="#f1690e">─</tspan><tspan fill="#f1680e">─</tspan><tspan fill="#f1670e">─</tspan><tspan fill="#f1670e">─</tspan><tspan fill="#f1660e">─</tspan><tspan fill="#f1650f">─</tspan><tspan fill="#f0640f">─</tspan><tspan fill="#f0630f">─</tspan><tspan fill="#f0630f">─</tspan><tspan fill="#f0620f">─</tspan><tspan fill="#f06110">─</tspan><tspan fill="#ef6010">─</tspan><tspan fill="#ef6010">─</tspan><tspan fill="#ef5f10">─</tspan><tspan fill="#ef5e10">─</tspan><tspan fill="#ef5d11">─</tspan><tspan fill="#ef5d11">─</tspan><tspan fill="#ee5c11">─</tspan><tspan fill="#ee5b11">─</tspan><tspan fill="#ee5a11">─</tspan><tspan fill="#ee5a12">─</tspan><tspan fill="#ee5912">─</tspan><tspan fill="#ed5812">─</tspan><tspan fill="#ed5712">─</tspan><tspan fill="#ed5712">─</tspan><tspan fill="#ed5613">─</tspan><tspan fill="#ed5513">┐</tspan></text>
-    <text x="24.0" y="176.2"><tspan fill="#f77e08">│</tspan><tspan fill="#e6ebf0"> TIER 2: Profile Linker &amp; UKI Sealer                       </tspan><tspan fill="#ec5114">│</tspan></text>
-    <text x="24.0" y="195.2"><tspan fill="#f67a09">│</tspan><tspan fill="#e6ebf0">  [Archive] </tspan><tspan fill="#f3700c">─</tspan><tspan fill="#f36f0c">─</tspan><tspan fill="#f36e0c">►</tspan><tspan fill="#e6ebf0"> ld.lld --gc-sections + Cohort .BTF         </tspan><tspan fill="#ea4c15">│</tspan></text>
-    <text x="24.0" y="214.2"><tspan fill="#f5750a">│</tspan><tspan fill="#e6ebf0">            </tspan><tspan fill="#f26b0d">─</tspan><tspan fill="#f26a0d">─</tspan><tspan fill="#f26a0d">►</tspan><tspan fill="#e6ebf0"> Pack Relocs + Sign UKI (SEV-SNP / TDX)     </tspan><tspan fill="#e94816">│</tspan></text>
-    <text x="24.0" y="233.2"><tspan fill="#f3710b">└</tspan><tspan fill="#f3700c">─</tspan><tspan fill="#f36f0c">─</tspan><tspan fill="#f36e0c">─</tspan><tspan fill="#f36e0c">─</tspan><tspan fill="#f26d0c">─</tspan><tspan fill="#f26c0d">─</tspan><tspan fill="#f26b0d">─</tspan><tspan fill="#f26b0d">─</tspan><tspan fill="#f26a0d">─</tspan><tspan fill="#f2690d">─</tspan><tspan fill="#f1680e">─</tspan><tspan fill="#f1670e">─</tspan><tspan fill="#f1670e">─</tspan><tspan fill="#f1660e">─</tspan><tspan fill="#f1650e">─</tspan><tspan fill="#f0640f">─</tspan><tspan fill="#f0640f">─</tspan><tspan fill="#f0630f">─</tspan><tspan fill="#f0620f">─</tspan><tspan fill="#f0610f">─</tspan><tspan fill="#ef6110">─</tspan><tspan fill="#ef6010">─</tspan><tspan fill="#ef5f10">─</tspan><tspan fill="#ef5e10">─</tspan><tspan fill="#ef5e10">─</tspan><tspan fill="#ef5d11">─</tspan><tspan fill="#ee5c11">─</tspan><tspan fill="#ee5b11">─</tspan><tspan fill="#ee5b11">─</tspan><tspan fill="#ee5a12">┬</tspan><tspan fill="#ee5912">─</tspan><tspan fill="#ed5812">─</tspan><tspan fill="#ed5812">─</tspan><tspan fill="#ed5712">─</tspan><tspan fill="#ed5613">─</tspan><tspan fill="#ed5513">─</tspan><tspan fill="#ed5513">─</tspan><tspan fill="#ec5413">─</tspan><tspan fill="#ec5313">─</tspan><tspan fill="#ec5214">─</tspan><tspan fill="#ec5214">─</tspan><tspan fill="#ec5114">─</tspan><tspan fill="#eb5014">─</tspan><tspan fill="#eb4f14">─</tspan><tspan fill="#eb4f15">─</tspan><tspan fill="#eb4e15">─</tspan><tspan fill="#eb4d15">─</tspan><tspan fill="#ea4c15">─</tspan><tspan fill="#ea4b15">─</tspan><tspan fill="#ea4b16">─</tspan><tspan fill="#ea4a16">─</tspan><tspan fill="#ea4916">─</tspan><tspan fill="#ea4816">─</tspan><tspan fill="#e94816">─</tspan><tspan fill="#e94717">─</tspan><tspan fill="#e94617">─</tspan><tspan fill="#e94517">─</tspan><tspan fill="#e94517">─</tspan><tspan fill="#e84417">─</tspan><tspan fill="#e84318">┘</tspan></text>
-    <text x="24.0" y="252.2"><tspan fill="#e6ebf0">                              </tspan><tspan fill="#ed5513">▼</tspan></text>
-    <text x="24.0" y="271.2"><tspan fill="#f1680e">┌</tspan><tspan fill="#f1670e">─</tspan><tspan fill="#f1660e">─</tspan><tspan fill="#f1650e">─</tspan><tspan fill="#f0650f">─</tspan><tspan fill="#f0640f">─</tspan><tspan fill="#f0630f">─</tspan><tspan fill="#f0620f">─</tspan><tspan fill="#f0620f">─</tspan><tspan fill="#f06110">─</tspan><tspan fill="#ef6010">─</tspan><tspan fill="#ef5f10">─</tspan><tspan fill="#ef5f10">─</tspan><tspan fill="#ef5e10">─</tspan><tspan fill="#ef5d11">─</tspan><tspan fill="#ee5c11">─</tspan><tspan fill="#ee5b11">─</tspan><tspan fill="#ee5b11">─</tspan><tspan fill="#ee5a11">─</tspan><tspan fill="#ee5912">─</tspan><tspan fill="#ed5812">─</tspan><tspan fill="#ed5812">─</tspan><tspan fill="#ed5712">─</tspan><tspan fill="#ed5612">─</tspan><tspan fill="#ed5513">─</tspan><tspan fill="#ed5513">─</tspan><tspan fill="#ec5413">─</tspan><tspan fill="#ec5313">─</tspan><tspan fill="#ec5213">─</tspan><tspan fill="#ec5214">─</tspan><tspan fill="#ec5114">─</tspan><tspan fill="#eb5014">─</tspan><tspan fill="#eb4f14">─</tspan><tspan fill="#eb4f15">─</tspan><tspan fill="#eb4e15">─</tspan><tspan fill="#eb4d15">─</tspan><tspan fill="#ea4c15">─</tspan><tspan fill="#ea4c15">─</tspan><tspan fill="#ea4b16">─</tspan><tspan fill="#ea4a16">─</tspan><tspan fill="#ea4916">─</tspan><tspan fill="#ea4916">─</tspan><tspan fill="#e94816">─</tspan><tspan fill="#e94717">─</tspan><tspan fill="#e94617">─</tspan><tspan fill="#e94617">─</tspan><tspan fill="#e94517">─</tspan><tspan fill="#e84417">─</tspan><tspan fill="#e84318">─</tspan><tspan fill="#e84218">─</tspan><tspan fill="#e84218">─</tspan><tspan fill="#e84118">─</tspan><tspan fill="#e74018">─</tspan><tspan fill="#e73f19">─</tspan><tspan fill="#e73f19">─</tspan><tspan fill="#e73e19">─</tspan><tspan fill="#e73d19">─</tspan><tspan fill="#e73c19">─</tspan><tspan fill="#e63c1a">─</tspan><tspan fill="#e63b1a">─</tspan><tspan fill="#e63a1a">┐</tspan></text>
-    <text x="24.0" y="290.2"><tspan fill="#f0630f">│</tspan><tspan fill="#e6ebf0"> TIER 3: Early-Boot Self-Relinker (Every Boot, ~45ms)      </tspan><tspan fill="#e5361b">│</tspan></text>
-    <text x="24.0" y="309.2"><tspan fill="#ef5f10">│</tspan><tspan fill="#e6ebf0">  [Cohort UKI] </tspan><tspan fill="#ec5213">─</tspan><tspan fill="#ec5214">─</tspan><tspan fill="#ec5114">►</tspan><tspan fill="#e6ebf0"> Verify Hash (PCR / RTMR / SNP)          </tspan><tspan fill="#e4311c">│</tspan></text>
-    <text x="24.0" y="328.2"><tspan fill="#ee5a11">│</tspan><tspan fill="#e6ebf0">               </tspan><tspan fill="#eb4e15">─</tspan><tspan fill="#eb4d15">─</tspan><tspan fill="#eb4c15">►</tspan><tspan fill="#e6ebf0"> CPU RDSEED + Shuffle (.text, .data)     </tspan><tspan fill="#e32d1e">│</tspan></text>
-    <text x="24.0" y="347.2"><tspan fill="#ed5613">│</tspan><tspan fill="#e6ebf0">               </tspan><tspan fill="#ea4a16">─</tspan><tspan fill="#ea4916">─</tspan><tspan fill="#e94816">►</tspan><tspan fill="#e6ebf0"> Sort Unwind/Syms + HPKE Seal &amp; Wipe     </tspan><tspan fill="#e2281f">│</tspan></text>
-    <text x="24.0" y="366.2"><tspan fill="#ec5114">└</tspan><tspan fill="#eb5014">─</tspan><tspan fill="#eb5014">─</tspan><tspan fill="#eb4f14">─</tspan><tspan fill="#eb4e15">─</tspan><tspan fill="#eb4d15">─</tspan><tspan fill="#eb4d15">─</tspan><tspan fill="#ea4c15">─</tspan><tspan fill="#ea4b15">─</tspan><tspan fill="#ea4a16">─</tspan><tspan fill="#ea4a16">─</tspan><tspan fill="#ea4916">─</tspan><tspan fill="#e94816">─</tspan><tspan fill="#e94716">─</tspan><tspan fill="#e94717">─</tspan><tspan fill="#e94617">┬</tspan><tspan fill="#e94517">─</tspan><tspan fill="#e84417">─</tspan><tspan fill="#e84417">─</tspan><tspan fill="#e84318">─</tspan><tspan fill="#e84218">─</tspan><tspan fill="#e84118">─</tspan><tspan fill="#e84018">─</tspan><tspan fill="#e74018">─</tspan><tspan fill="#e73f19">─</tspan><tspan fill="#e73e19">─</tspan><tspan fill="#e73d19">─</tspan><tspan fill="#e73d19">─</tspan><tspan fill="#e63c19">─</tspan><tspan fill="#e63b1a">─</tspan><tspan fill="#e63a1a">─</tspan><tspan fill="#e63a1a">─</tspan><tspan fill="#e6391a">─</tspan><tspan fill="#e5381a">─</tspan><tspan fill="#e5371b">─</tspan><tspan fill="#e5371b">─</tspan><tspan fill="#e5361b">─</tspan><tspan fill="#e5351b">─</tspan><tspan fill="#e5341b">─</tspan><tspan fill="#e4341c">─</tspan><tspan fill="#e4331c">─</tspan><tspan fill="#e4321c">─</tspan><tspan fill="#e4311c">─</tspan><tspan fill="#e4311c">─</tspan><tspan fill="#e3301d">─</tspan><tspan fill="#e32f1d">┬</tspan><tspan fill="#e32e1d">─</tspan><tspan fill="#e32e1d">─</tspan><tspan fill="#e32d1e">─</tspan><tspan fill="#e32c1e">─</tspan><tspan fill="#e22b1e">─</tspan><tspan fill="#e22b1e">─</tspan><tspan fill="#e22a1e">─</tspan><tspan fill="#e2291f">─</tspan><tspan fill="#e2281f">─</tspan><tspan fill="#e1271f">─</tspan><tspan fill="#e1271f">─</tspan><tspan fill="#e1261f">─</tspan><tspan fill="#e12520">─</tspan><tspan fill="#e12420">─</tspan><tspan fill="#e02420">┘</tspan></text>
-    <text x="24.0" y="385.2"><tspan fill="#e6ebf0">               </tspan><tspan fill="#e84118">▼</tspan><tspan fill="#e6ebf0">                             </tspan><tspan fill="#e22b1e">▼</tspan></text>
-    <text x="24.0" y="404.2"><tspan fill="#e94816">┌</tspan><tspan fill="#e94716">─</tspan><tspan fill="#e94717">─</tspan><tspan fill="#e94617">─</tspan><tspan fill="#e94517">─</tspan><tspan fill="#e94417">─</tspan><tspan fill="#e84417">─</tspan><tspan fill="#e84318">─</tspan><tspan fill="#e84218">─</tspan><tspan fill="#e84118">─</tspan><tspan fill="#e84118">─</tspan><tspan fill="#e74018">─</tspan><tspan fill="#e73f19">─</tspan><tspan fill="#e73e19">─</tspan><tspan fill="#e73e19">─</tspan><tspan fill="#e73d19">─</tspan><tspan fill="#e63c19">─</tspan><tspan fill="#e63b1a">─</tspan><tspan fill="#e63b1a">─</tspan><tspan fill="#e63a1a">─</tspan><tspan fill="#e6391a">─</tspan><tspan fill="#e6381a">─</tspan><tspan fill="#e5371b">─</tspan><tspan fill="#e5371b">─</tspan><tspan fill="#e5361b">─</tspan><tspan fill="#e5351b">─</tspan><tspan fill="#e5341b">─</tspan><tspan fill="#e4341c">─</tspan><tspan fill="#e4331c">─</tspan><tspan fill="#e4321c">┐</tspan><tspan fill="#e6ebf0"> </tspan><tspan fill="#e4311c">┌</tspan><tspan fill="#e3301d">─</tspan><tspan fill="#e32f1d">─</tspan><tspan fill="#e32e1d">─</tspan><tspan fill="#e32e1d">─</tspan><tspan fill="#e32d1d">─</tspan><tspan fill="#e32c1e">─</tspan><tspan fill="#e22b1e">─</tspan><tspan fill="#e22b1e">─</tspan><tspan fill="#e22a1e">─</tspan><tspan fill="#e2291e">─</tspan><tspan fill="#e2281f">─</tspan><tspan fill="#e1281f">─</tspan><tspan fill="#e1271f">─</tspan><tspan fill="#e1261f">─</tspan><tspan fill="#e1251f">─</tspan><tspan fill="#e12520">─</tspan><tspan fill="#e02420">─</tspan><tspan fill="#e02320">─</tspan><tspan fill="#e02220">─</tspan><tspan fill="#e02221">─</tspan><tspan fill="#e02121">─</tspan><tspan fill="#e02021">─</tspan><tspan fill="#df1f21">─</tspan><tspan fill="#df1f21">─</tspan><tspan fill="#df1e22">─</tspan><tspan fill="#df1d22">─</tspan><tspan fill="#df1c22">─</tspan><tspan fill="#de1b22">─</tspan><tspan fill="#de1b22">┐</tspan></text>
-    <text x="24.0" y="423.2"><tspan fill="#e84417">│</tspan><tspan fill="#e6ebf0"> Hardened CVM / Node        </tspan><tspan fill="#e32e1d">│</tspan><tspan fill="#e6ebf0"> </tspan><tspan fill="#e32c1e">│</tspan><tspan fill="#e6ebf0"> Symbol &amp; Attestation Vault </tspan><tspan fill="#dd1624">│</tspan></text>
-    <text x="24.0" y="442.2"><tspan fill="#e73f19">│</tspan><tspan fill="#e6ebf0"> </tspan><tspan fill="#e73e19">•</tspan><tspan fill="#e6ebf0"> Redacted kallsyms        </tspan><tspan fill="#e2291e">│</tspan><tspan fill="#e6ebf0"> </tspan><tspan fill="#e1281f">│</tspan><tspan fill="#e6ebf0"> </tspan><tspan fill="#e1261f">•</tspan><tspan fill="#e6ebf0"> Verify Cohort Signature  </tspan><tspan fill="#dc1225">│</tspan></text>
-    <text x="24.0" y="461.2"><tspan fill="#e63b1a">│</tspan><tspan fill="#e6ebf0"> </tspan><tspan fill="#e6391a">•</tspan><tspan fill="#e6ebf0"> Per-Boot Slab Cache Rand </tspan><tspan fill="#e12520">│</tspan><tspan fill="#e6ebf0"> </tspan><tspan fill="#e02320">│</tspan><tspan fill="#e6ebf0"> </tspan><tspan fill="#e02220">•</tspan><tspan fill="#e6ebf0"> Unseal Panic HPKE Seed   </tspan><tspan fill="#db0d26">│</tspan></text>
-    <text x="24.0" y="480.2"><tspan fill="#e5361b">│</tspan><tspan fill="#e6ebf0"> </tspan><tspan fill="#e5351b">•</tspan><tspan fill="#e6ebf0"> Intact eBPF CO-RE &amp; VDSO </tspan><tspan fill="#e02021">│</tspan><tspan fill="#e6ebf0"> </tspan><tspan fill="#df1f21">│</tspan><tspan fill="#e6ebf0"> </tspan><tspan fill="#df1d22">•</tspan><tspan fill="#e6ebf0"> Replay Seed -&gt; GDB Map   </tspan><tspan fill="#da0927">│</tspan></text>
-    <text x="24.0" y="499.2"><tspan fill="#e4321c">└</tspan><tspan fill="#e4311c">─</tspan><tspan fill="#e4301d">─</tspan><tspan fill="#e32f1d">─</tspan><tspan fill="#e32f1d">─</tspan><tspan fill="#e32e1d">─</tspan><tspan fill="#e32d1d">─</tspan><tspan fill="#e32c1e">─</tspan><tspan fill="#e22c1e">─</tspan><tspan fill="#e22b1e">─</tspan><tspan fill="#e22a1e">─</tspan><tspan fill="#e2291e">─</tspan><tspan fill="#e2291f">─</tspan><tspan fill="#e1281f">─</tspan><tspan fill="#e1271f">─</tspan><tspan fill="#e1261f">─</tspan><tspan fill="#e1261f">─</tspan><tspan fill="#e12520">─</tspan><tspan fill="#e12420">─</tspan><tspan fill="#e02320">─</tspan><tspan fill="#e02320">─</tspan><tspan fill="#e02220">─</tspan><tspan fill="#e02121">─</tspan><tspan fill="#e02021">─</tspan><tspan fill="#df2021">─</tspan><tspan fill="#df1f21">─</tspan><tspan fill="#df1e21">─</tspan><tspan fill="#df1d22">─</tspan><tspan fill="#df1c22">─</tspan><tspan fill="#de1c22">┘</tspan><tspan fill="#e6ebf0"> </tspan><tspan fill="#de1a22">└</tspan><tspan fill="#de1923">─</tspan><tspan fill="#de1923">─</tspan><tspan fill="#de1823">─</tspan><tspan fill="#dd1723">─</tspan><tspan fill="#dd1623">─</tspan><tspan fill="#dd1624">─</tspan><tspan fill="#dd1524">─</tspan><tspan fill="#dd1424">─</tspan><tspan fill="#dc1324">─</tspan><tspan fill="#dc1324">─</tspan><tspan fill="#dc1225">─</tspan><tspan fill="#dc1125">─</tspan><tspan fill="#dc1025">─</tspan><tspan fill="#db1025">─</tspan><tspan fill="#db0f25">─</tspan><tspan fill="#db0e26">─</tspan><tspan fill="#db0d26">─</tspan><tspan fill="#db0d26">─</tspan><tspan fill="#db0c26">─</tspan><tspan fill="#da0b26">─</tspan><tspan fill="#da0a27">─</tspan><tspan fill="#da0a27">─</tspan><tspan fill="#da0927">─</tspan><tspan fill="#da0827">─</tspan><tspan fill="#d90727">─</tspan><tspan fill="#d90728">─</tspan><tspan fill="#d90628">─</tspan><tspan fill="#d90528">─</tspan><tspan fill="#d90428">┘</tspan></text>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 560" width="880" height="560" fill="none">
+  <defs>
+    <!-- Main Orange-to-Red Diagonal Gradient -->
+    <linearGradient id="swizzle-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff9e00" />
+      <stop offset="50%" stop-color="#ec5215" />
+      <stop offset="100%" stop-color="#d90429" />
+    </linearGradient>
+
+    <!-- Tier 1 Border Gradient -->
+    <linearGradient id="tier1-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ff9e00" />
+      <stop offset="100%" stop-color="#f77f00" />
+    </linearGradient>
+
+    <!-- Tier 2 Border Gradient -->
+    <linearGradient id="tier2-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f46d08" />
+      <stop offset="100%" stop-color="#e3361c" />
+    </linearGradient>
+
+    <!-- Tier 3 Border Gradient -->
+    <linearGradient id="tier3-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#df2920" />
+      <stop offset="100%" stop-color="#d90429" />
+    </linearGradient>
+
+    <!-- Subtle Card Surface Gradient -->
+    <linearGradient id="card-bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#161b22" />
+      <stop offset="100%" stop-color="#0d1117" />
+    </linearGradient>
+
+    <!-- Arrow Markers -->
+    <marker id="arrow-orange" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 1 2 L 8 5 L 1 8 z" fill="#f77f00" />
+    </marker>
+    <marker id="arrow-mid" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 1 2 L 8 5 L 1 8 z" fill="#e63e19" />
+    </marker>
+    <marker id="arrow-red" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 1 2 L 8 5 L 1 8 z" fill="#d90429" />
+    </marker>
+  </defs>
+
+  <!-- Canvas Background -->
+  <rect width="880" height="560" rx="14" fill="#0b0e14" stroke="#21262d" stroke-width="1" />
+
+  <!-- ========================================================================= -->
+  <!-- TIER 1: COHORT BUILDER                                                    -->
+  <!-- ========================================================================= -->
+  <rect x="32" y="24" width="816" height="106" rx="10" fill="url(#card-bg)" stroke="url(#tier1-grad)" stroke-width="1.5" />
+  <text x="52" y="48" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11" font-weight="700" fill="#ff9e00" letter-spacing="1">TIER 1 · COHORT BUILDER</text>
+  <text x="828" y="48" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11" fill="#8b949e">cadence: 1–6h</text>
+
+  <!-- Node 1.1 -->
+  <rect x="52" y="62" width="168" height="50" rx="6" fill="#1c2128" stroke="#30363d" stroke-width="1" />
+  <text x="136" y="84" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#f0f6fc">Kernel Source</text>
+  <text x="136" y="101" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11" fill="#8b949e">vmlinux + UAPI</text>
+
+  <line x1="220" y1="87" x2="250" y2="87" stroke="#f77f00" stroke-width="1.5" marker-end="url(#arrow-orange)" />
+
+  <!-- Node 1.2 -->
+  <rect x="256" y="62" width="248" height="50" rx="6" fill="#1c2128" stroke="#30363d" stroke-width="1" />
+  <text x="380" y="84" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#f0f6fc">RANDSTRUCT + RegAlloc Jitter</text>
+  <text x="380" y="101" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11" fill="#ffb703">Seed_C · 64B cacheline bounds</text>
+
+  <line x1="504" y1="87" x2="534" y2="87" stroke="#f77f00" stroke-width="1.5" marker-end="url(#arrow-orange)" />
+
+  <!-- Node 1.3 -->
+  <rect x="540" y="62" width="288" height="50" rx="6" fill="#1c2128" stroke="#30363d" stroke-width="1" />
+  <text x="684" y="84" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#f0f6fc">Superset Thin Archive</text>
+  <text x="684" y="101" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11" fill="#8b949e">vmlinux-superset.a + pinned eBPF</text>
+
+  <!-- Connector Tier 1 -> Tier 2 -->
+  <line x1="440" y1="130" x2="440" y2="154" stroke="#f46d08" stroke-width="1.75" marker-end="url(#arrow-orange)" />
+
+  <!-- ========================================================================= -->
+  <!-- TIER 2: PROFILE LINKER & UKI SEALER                                       -->
+  <!-- ========================================================================= -->
+  <rect x="32" y="160" width="816" height="106" rx="10" fill="url(#card-bg)" stroke="url(#tier2-grad)" stroke-width="1.5" />
+  <text x="52" y="184" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11" font-weight="700" fill="#f46d08" letter-spacing="1">TIER 2 · PROFILE LINKER &amp; UKI SEALER</text>
+  <text x="828" y="184" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11" fill="#8b949e">per hardware profile</text>
+
+  <!-- Node 2.1 -->
+  <rect x="52" y="198" width="232" height="50" rx="6" fill="#1c2128" stroke="#30363d" stroke-width="1" />
+  <text x="168" y="220" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#f0f6fc">Profile Slicer + Cohort BTF</text>
+  <text x="168" y="237" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11" fill="#8b949e">ld.lld --gc-sections · pahole -J</text>
+
+  <line x1="284" y1="223" x2="314" y2="223" stroke="#e63e19" stroke-width="1.5" marker-end="url(#arrow-mid)" />
+
+  <!-- Node 2.2 -->
+  <rect x="320" y="198" width="232" height="50" rx="6" fill="#1c2128" stroke="#30363d" stroke-width="1" />
+  <text x="436" y="220" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#f0f6fc">Pack SHT_RELA Relocations</text>
+  <text x="436" y="237" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11" fill="#f46d08">.init.swizzle_relocs (SWZL)</text>
+
+  <line x1="552" y1="223" x2="582" y2="223" stroke="#e63e19" stroke-width="1.5" marker-end="url(#arrow-mid)" />
+
+  <!-- Node 2.3 -->
+  <rect x="588" y="198" width="240" height="50" rx="6" fill="#1c2128" stroke="#30363d" stroke-width="1" />
+  <text x="708" y="220" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#f0f6fc">Signed Cohort UKI</text>
+  <text x="708" y="237" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11" fill="#8b949e">SEV-SNP ID_BLOCK · TDX · pcrlock</text>
+
+  <!-- Connector Tier 2 -> Tier 3 -->
+  <line x1="440" y1="266" x2="440" y2="290" stroke="#e3361c" stroke-width="1.75" marker-end="url(#arrow-mid)" />
+
+  <!-- ========================================================================= -->
+  <!-- TIER 3: IN-ENCLAVE EARLY-BOOT SELF-RELINKER                               -->
+  <!-- ========================================================================= -->
+  <rect x="32" y="296" width="816" height="106" rx="10" fill="url(#card-bg)" stroke="url(#tier3-grad)" stroke-width="1.5" />
+  <text x="52" y="320" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11" font-weight="700" fill="#ea2b1f" letter-spacing="1">TIER 3 · IN-ENCLAVE EARLY-BOOT SELF-RELINKER</text>
+  <text x="828" y="320" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11" fill="#8b949e">every boot · ~45ms</text>
+
+  <!-- Node 3.1 -->
+  <rect x="52" y="334" width="174" height="50" rx="6" fill="#1c2128" stroke="#30363d" stroke-width="1" />
+  <text x="139" y="356" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#f0f6fc">Hardware Measure</text>
+  <text x="139" y="373" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11" fill="#8b949e">PCR[4] · RTMR[1] · SNP</text>
+
+  <line x1="226" y1="359" x2="248" y2="359" stroke="#d90429" stroke-width="1.5" marker-end="url(#arrow-red)" />
+
+  <!-- Node 3.2 -->
+  <rect x="254" y="334" width="188" height="50" rx="6" fill="#1c2128" stroke="#30363d" stroke-width="1" />
+  <text x="348" y="356" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#f0f6fc">RDSEED Permutation</text>
+  <text x="348" y="373" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11" fill="#f94144">.text* · .data* · .rodata*</text>
+
+  <line x1="442" y1="359" x2="464" y2="359" stroke="#d90429" stroke-width="1.5" marker-end="url(#arrow-red)" />
+
+  <!-- Node 3.3 -->
+  <rect x="470" y="334" width="174" height="50" rx="6" fill="#1c2128" stroke="#30363d" stroke-width="1" />
+  <text x="557" y="356" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#f0f6fc">In-Place Heapsort</text>
+  <text x="557" y="373" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11" fill="#8b949e">ex_table · ORC · kallsyms</text>
+
+  <line x1="644" y1="359" x2="666" y2="359" stroke="#d90429" stroke-width="1.5" marker-end="url(#arrow-red)" />
+
+  <!-- Node 3.4 -->
+  <rect x="672" y="334" width="156" height="50" rx="6" fill="#1c2128" stroke="#30363d" stroke-width="1" />
+  <text x="750" y="356" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#f0f6fc">HPKE Seal &amp; Scrub</text>
+  <text x="750" y="373" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11" fill="#f94144">RFC 9180 · memzero</text>
+
+  <!-- Connectors Tier 3 -> Bottom Boxes -->
+  <line x1="230" y1="402" x2="230" y2="428" stroke="#d90429" stroke-width="1.75" marker-end="url(#arrow-red)" />
+  <line x1="650" y1="402" x2="650" y2="428" stroke="#d90429" stroke-width="1.75" stroke-dasharray="4 3" marker-end="url(#arrow-red)" />
+
+  <!-- ========================================================================= -->
+  <!-- BOTTOM LEFT: HARDENED TARGET NODE / CVM                                   -->
+  <!-- ========================================================================= -->
+  <rect x="32" y="434" width="396" height="102" rx="10" fill="url(#card-bg)" stroke="#d90429" stroke-width="1.5" />
+  <text x="52" y="458" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11" font-weight="700" fill="#f94144" letter-spacing="1">HARDENED RUNTIME · TARGET CVM / NODE</text>
+
+  <circle cx="58" cy="480" r="3" fill="#ff9e00" />
+  <text x="70" y="484" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#c9d1d9">Address-redacted <tspan fill="#f0f6fc">%pS</tspan> (<tspan fill="#8b949e">func+0xoff/0xsize</tspan>)</text>
+
+  <circle cx="58" cy="500" r="3" fill="#f46d08" />
+  <text x="70" y="504" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#c9d1d9">Per-boot slab freelist jitter &amp; <tspan fill="#f0f6fc">kmalloc</tspan> isolation</text>
+
+  <circle cx="58" cy="520" r="3" fill="#d90429" />
+  <text x="70" y="524" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#c9d1d9">Intact eBPF CO-RE (<tspan fill="#f0f6fc">.BTF</tspan>) &amp; CRIU VDSO offsets</text>
+
+  <!-- ========================================================================= -->
+  <!-- BOTTOM RIGHT: SYMBOL & ATTESTATION VAULT                                  -->
+  <!-- ========================================================================= -->
+  <rect x="452" y="434" width="396" height="102" rx="10" fill="url(#card-bg)" stroke="#d90429" stroke-width="1.5" />
+  <text x="472" y="458" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11" font-weight="700" fill="#f94144" letter-spacing="1">ZERO-STORAGE FORENSICS · SYMBOL VAULT</text>
+
+  <circle cx="478" cy="480" r="3" fill="#ff9e00" />
+  <text x="490" y="484" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#c9d1d9">Signer-delegated root verification (<tspan fill="#8b949e">SNP / TDX</tspan>)</text>
+
+  <circle cx="478" cy="500" r="3" fill="#f46d08" />
+  <text x="490" y="504" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#c9d1d9">Unseals panic <tspan fill="#f0f6fc">hpke:v1:&lt;enc&gt;:&lt;ct&gt;</tspan> envelope</text>
+
+  <circle cx="478" cy="520" r="3" fill="#d90429" />
+  <text x="490" y="524" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#c9d1d9">Replays <tspan fill="#f0f6fc">Seed_B</tspan> &#8594; exact GDB map (zero stored binaries)</text>
 </svg>
